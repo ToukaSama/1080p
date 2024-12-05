@@ -1,4 +1,4 @@
-# oof
+# main.py
 from datetime import datetime as dt
 import os
 from bot.helper_funcs.ffmpeg import media_info, take_screen_shot
@@ -155,15 +155,36 @@ if __name__ == "__main__" :
             await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
             
         
+
+
     @app.on_message(filters.incoming & filters.command(["compress", f"compress@{BOT_USERNAME}"]))
     async def help_message(app, message):
-        if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot contact @Sensei_Rimuru")
-        query = await message.reply_text("ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜ ᴇɴᴄᴏᴅᴇ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", quote=True)
-        data.append(message.reply_to_message)
-        if len(data) == 1:
-         await query.delete()   
-         await add_task(message.reply_to_message)     
+        custom_filename = None
+        
+        # Check for the custom filename argument
+        if len(message.command) > 1 and message.command[1] == '-n':
+            # Join all words after -n as the filename
+            if len(message.command) > 2:
+                custom_filename = ' '.join(message.command[2:])
+            else:
+                return await message.reply_text("Please provide a filename after -n", quote=True)
+
+        # If no custom filename is provided, extract the filename from the replied message
+        if not custom_filename and message.reply_to_message and message.reply_to_message.document:
+            original_filename = message.reply_to_message.document.file_name
+            custom_filename = original_filename.replace(os.path.splitext(original_filename)[1], '')
+        
+        # Inform the user about the queue
+        query = await message.reply_text(
+            "ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜʀ ᴇɴᴄᴏᴅɪɴɢ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", 
+            quote=True
+        )
+
+        # Append the task to the queue
+        data.append((message.reply_to_message, custom_filename))  # Save both message and custom filename
+        if len(data) == 1:  # If this is the only task, start immediately
+            await query.delete()
+            await add_task(message.reply_to_message, custom_filename)
  
     @app.on_message(filters.incoming & filters.command(["restart", f"restart@{BOT_USERNAME}"]))
     async def restarter(app, message):
@@ -177,15 +198,15 @@ if __name__ == "__main__" :
       await message.reply_text("✅sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴇᴀʀᴇᴅ ǫᴜᴇᴜᴇ ...")
          
         
-    @app.on_message(filters.incoming & (filters.video | filters.document))
-    async def help_message(app, message):
-        if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot contact @Sensei_Rimuru")
-        query = await message.reply_text("ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜ ᴇɴᴄᴏᴅᴇ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", quote=True)
-        data.append(message)
-        if len(data) == 1:
-         await query.delete()   
-         await add_task(message)
+    # @app.on_message(filters.incoming & (filters.video | filters.document))
+    # async def help_message(app, message):
+    #     if message.chat.id not in AUTH_USERS:
+    #         return await message.reply_text("You are not authorised to use this bot contact @Sensei_Rimuru")
+    #     query = await message.reply_text("ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜ ᴇɴᴄᴏᴅᴇ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", quote=True)
+    #     data.append(message)
+    #     if len(data) == 1:
+    #      await query.delete()   
+    #      await add_task(message)
             
     @app.on_message(filters.incoming & (filters.photo))
     async def help_message(app, message):

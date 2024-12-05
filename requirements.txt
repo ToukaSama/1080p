@@ -1,10 +1,11 @@
+aiogram
+aiohttp
+anitopy
 Pillow
 psutil
 hachoir
-tgcrypto
-pyroblack
+tgcrypto-pyrofork
 motor
-https://github.com/Tinche/aiofiles/archive/master.zip
 dnspython
-ffmpeg
-asyncio 
+pyrofork
+asyncio

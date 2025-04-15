@@ -47,7 +47,7 @@ async def incoming_start_message_f(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Channel', url='https://t.me/Anime_Sensei_Network')
+                    InlineKeyboardButton('Channel', url='https://t.me/Anime_Sovereign')
                 ]
             ]
         ),
@@ -171,11 +171,11 @@ async def incoming_cancel_message_f(bot, update):
     if os.path.exists(status):
         reply_markup = InlineKeyboardMarkup(
             [[
-                InlineKeyboardButton("Yes 🚫", callback_data="fuckingdo"),
-                InlineKeyboardButton("No 🤗", callback_data="fuckoff")
+                InlineKeyboardButton("Yup 💫", callback_data="Seriously Dude?"),
+                InlineKeyboardButton("Noi 👁️‍🗨️", callback_data="Otie")
             ]]
         )
-        await update.reply_text("Are you sure? 🚫 This will stop the compression!", reply_markup=reply_markup, quote=True)
+        await update.reply_text("Sure? 💫 This will stop the compression!", reply_markup=reply_markup, quote=True)
     else:
         await bot.send_message(
             chat_id=update.chat.id,

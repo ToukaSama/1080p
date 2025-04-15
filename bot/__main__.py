@@ -44,11 +44,11 @@ from bot.plugins.status_message_fn import (
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
 sudo_users = "2036803347" 
-crf.append("28")
-codec.append("libx264")
-resolution.append("854x480")
-preset.append("veryfast")
-audio_b.append("40k")
+crf.append("30")
+codec.append("libx265")
+resolution.append("640x360")
+preset.append("fast")
+audio_b.append("48k")
 # 🤣
 
 
@@ -96,7 +96,7 @@ if __name__ == "__main__" :
             crf.insert(0, f"{cr}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
+            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 👁️‍🗨️")
             
     @app.on_message(filters.incoming & filters.command(["settings", f"settings@{BOT_USERNAME}"]))
     async def settings(app, message):
@@ -119,7 +119,7 @@ if __name__ == "__main__" :
             resolution.insert(0, f"{r}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
+            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 🍂")
 
             
                
@@ -131,7 +131,7 @@ if __name__ == "__main__" :
             preset.insert(0, f"{pop}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
+            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 🐣")
 
             
     @app.on_message(filters.incoming & filters.command(["codec", f"codec@{BOT_USERNAME}"]))
@@ -142,7 +142,7 @@ if __name__ == "__main__" :
             codec.insert(0, f"{col}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
+            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 🦉")
              
     @app.on_message(filters.incoming & filters.command(["audio", f"audio@{BOT_USERNAME}"]))
     async def changea(app, message):
@@ -152,7 +152,7 @@ if __name__ == "__main__" :
             audio_b.insert(0, f"{aud}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 😮‍💨")
+            await message.reply_text("ɪᴛ's ʙᴏᴛ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ 🌺")
             
         
 
@@ -195,7 +195,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & filters.command(["clear", f"clear@{BOT_USERNAME}"]))
     async def restarter(app, message):
       data.clear()
-      await message.reply_text("✅sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴇᴀʀᴇᴅ ǫᴜᴇᴜᴇ ...")
+      await message.reply_text("✨sᴜᴄᴄᴇssғᴜʟʟʏ ᴄʟᴇᴀʀᴇᴅ ǫᴜᴇᴜᴇ ...")
          
         
     # @app.on_message(filters.incoming & (filters.video | filters.document))
@@ -211,10 +211,10 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & (filters.photo))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot contact @Sensei_Rimuru")
+            return await message.reply_text("You are not authorised to use this bot!")
         os.system('rm thumb.jpg')
         await message.download(file_name='/app/thumb.jpg')
-        await message.reply_text('ᴛʜᴜᴍʙɴᴀɪʟ sᴀᴠᴇᴅ ✅')
+        await message.reply_text('ᴛʜᴜᴍʙɴᴀɪʟ sᴀᴠᴇᴅ 🌟')
        
     @app.on_message(filters.incoming & filters.command(["cancel", f"cancel@{BOT_USERNAME}"]))
     async def help_message(app, message):
@@ -235,7 +235,7 @@ if __name__ == "__main__" :
    
     @app.on_message(filters.incoming & filters.command(["help", f"help@{BOT_USERNAME}"]))
     async def help_message(app, message):
-        await message.reply_text("<b>Maintained By : @Anime_Sensei_Network</b>", quote=True)
+        await message.reply_text("<b>Fᴜᴄᴋ Yᴏᴜ Nɪɢɢᴀ🍹</b>", quote=True)
   
     @app.on_message(filters.incoming & filters.command(["log", f"log@{BOT_USERNAME}"]))
     async def help_message(app, message):
@@ -246,7 +246,7 @@ if __name__ == "__main__" :
       ed = dt.now()
       v = ts(int((ed - uptime).seconds) * 1000)
       ms = (ed - stt).microseconds / 1000
-      p = f"🌋Pɪɴɢ = {ms}ms"
+      p = f"🍁Pɪɴɢ = {ms}ms"
       await message.reply_text(v + "\n" + p)
 
     call_back_button_handler = CallbackQueryHandler(

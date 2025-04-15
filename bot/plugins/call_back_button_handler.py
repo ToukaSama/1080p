@@ -63,12 +63,12 @@ async def button(bot, update: CallbackQuery):
                         await bot.send_message(chat_id, f"**Last Process Cancelled, Bot is Free Now !!** \n\nProcess Done at `{now}`", parse_mode="markdown")
             else:
                 try:
-                    await update.message.edit_text("You are not allowed to do that 🤭")
+                    await update.message.edit_text("You aren't Authorised 🕊️")
                 except:
                     pass
 
         elif cb_data == "fuckoff":
             try:
-                await update.message.edit_text("Okay! Fine 🤬")
+                await update.message.edit_text("Done!")
             except:
                 pass

@@ -57,7 +57,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     resolution.append("640x360")
     preset.append("veryfast")
     audio_b.append("48k")
-    file_genertor_command =  f"ffmpeg -hide_banner -loglevel quiet -progress '{progress}' -i '{video_file}'  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}   '{out_put_file_name}' -y"
+    file_genertor_command =   f"ffmpeg -hide_banner -loglevel quiet -progress '{progress}' -i '{video_file}' -metadata 'title=Anime Sovereign' -c:v {codec[0]} -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 500k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]} -metadata:s:v 'title=Anime Sovereign' -metadata:s:a 'title=Anime Sovereign' -metadata:s:s 'title=Anime Sovereign' -y"
 #Done !!
     
     # Execute the compression process
